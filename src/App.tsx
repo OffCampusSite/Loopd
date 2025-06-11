@@ -434,7 +434,7 @@ const GradientBackground = ({ children }: { children: ReactNode }) => (
   </Box>
 );
 
-type PageType = 'home' | 'colleges' | 'about' | 'recommendations';
+type PageType = 'home' | 'colleges' | 'about' | 'student-scoop';
 
 // Custom SVG logo for Loop'd with infinity symbol replacing the "oo"
 const LoopdLogo = ({ size = 64 }: { size?: number }) => (
@@ -455,14 +455,53 @@ const LoopdLogo = ({ size = 64 }: { size?: number }) => (
 );
 
 const MinimalNav = ({ onNav }: { onNav: (page: PageType) => void }) => (
-  <Box sx={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between', px: { xs: 2, sm: 6 }, pt: { xs: 3, sm: 4 }, mb: { xs: 2, sm: 3 }, minHeight: { xs: 60, sm: 80 }, zIndex: 10 }}>
-    <Box sx={{ cursor: 'pointer', display: 'flex', alignItems: 'center' }} onClick={() => onNav('home')}>
+  <Box sx={{ 
+    width: '100%', 
+    display: 'flex', 
+    alignItems: 'center', 
+    justifyContent: 'center',
+    px: { xs: 2, sm: 4 }, 
+    pt: { xs: 3, sm: 4 }, 
+    mb: { xs: 2, sm: 3 }, 
+    minHeight: { xs: 60, sm: 80 }, 
+    zIndex: 10,
+    position: 'relative'
+  }}>
+    <Box sx={{ 
+      position: 'absolute',
+      left: { xs: 16, sm: 32 },
+      cursor: 'pointer', 
+      display: 'flex', 
+      alignItems: 'center' 
+    }} onClick={() => onNav('home')}>
       <LoopdLogo size={36} />
     </Box>
-    <Box sx={{ display: 'flex', gap: 4 }}>
-      <Typography sx={{ color: 'white', fontWeight: 600, fontSize: { xs: 16, sm: 18 }, cursor: 'pointer' }} onClick={() => onNav('colleges')}>Colleges</Typography>
-      <Typography sx={{ color: 'white', fontWeight: 600, fontSize: { xs: 16, sm: 18 }, cursor: 'pointer' }} onClick={() => onNav('about')}>About</Typography>
-      <Typography sx={{ color: 'white', fontWeight: 600, fontSize: { xs: 16, sm: 18 }, cursor: 'pointer' }} onClick={() => onNav('recommendations')}>Recommendations</Typography>
+    <Box sx={{ 
+      display: 'flex', 
+      gap: { xs: 2, sm: 4 },
+      alignItems: 'center'
+    }}>
+      <Typography sx={{ 
+        color: 'white', 
+        fontWeight: 600, 
+        fontSize: { xs: 14, sm: 18 }, 
+        cursor: 'pointer',
+        whiteSpace: 'nowrap'
+      }} onClick={() => onNav('colleges')}>Colleges</Typography>
+      <Typography sx={{ 
+        color: 'white', 
+        fontWeight: 600, 
+        fontSize: { xs: 14, sm: 18 }, 
+        cursor: 'pointer',
+        whiteSpace: 'nowrap'
+      }} onClick={() => onNav('about')}>About</Typography>
+      <Typography sx={{ 
+        color: 'white', 
+        fontWeight: 600, 
+        fontSize: { xs: 14, sm: 18 }, 
+        cursor: 'pointer',
+        whiteSpace: 'nowrap'
+      }} onClick={() => onNav('student-scoop')}>Student Scoop</Typography>
     </Box>
   </Box>
 );
@@ -509,10 +548,16 @@ function App() {
     <GradientBackground>
       <MinimalNav onNav={setPage} />
       <Container maxWidth="lg" sx={{ mt: { xs: 2, sm: 4 }, mb: { xs: 2, sm: 4 }, px: { xs: 0.5, sm: 2 } }}>
-        <Typography variant="h4" component="h1" gutterBottom sx={{ color: 'white', fontSize: { xs: '1.4rem', sm: '2rem' }, mb: 3, fontWeight: 900, textShadow: '0 2px 12px rgba(44,62,80,0.10)' }}>
+        <Typography variant="h4" component="h1" gutterBottom sx={{ color: 'white', fontSize: { xs: '1.4rem', sm: '2rem' }, mb: 2, fontWeight: 900, textShadow: '0 2px 12px rgba(44,62,80,0.10)' }}>
           Explore College Loops
         </Typography>
-        <Typography variant="subtitle1" color="white" sx={{ mb: { xs: 2, sm: 4 }, fontSize: { xs: '1rem', sm: '1.2rem' }, textShadow: '0 2px 12px rgba(44,62,80,0.10)' }}>
+        <Typography variant="subtitle1" sx={{ 
+          color: 'white', 
+          mb: 3, 
+          fontSize: { xs: '1rem', sm: '1.2rem' }, 
+          textShadow: '0 2px 12px rgba(44,62,80,0.10)',
+          fontWeight: 500
+        }}>
           Select a college to discover the best spots and gift ideas in their area
         </Typography>
         <Autocomplete
@@ -525,10 +570,10 @@ function App() {
           renderInput={(params) => (
             <TextField
               {...params}
-              label="Select a College"
+              label="Choose Your School"
               variant="outlined"
               fullWidth
-              sx={{ mb: { xs: 2, sm: 4 }, bgcolor: 'rgba(255,255,255,0.85)', borderRadius: 2, input: { color: '#222' } }}
+              sx={{ mb: { xs: 2, sm: 4 }, bgcolor: 'rgba(255,255,255,0.95)', borderRadius: 2, input: { color: '#222' } }}
             />
           )}
         />
@@ -611,32 +656,83 @@ function App() {
     </GradientBackground>
   );
 
-  const RecommendationsPage = () => (
+  const StudentScoopPage = () => (
     <GradientBackground>
       <MinimalNav onNav={setPage} />
       <Box sx={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '70vh', width: '100%' }}>
-        <Paper elevation={0} sx={{ p: { xs: 3, sm: 5 }, borderRadius: 4, bgcolor: 'white', maxWidth: 800, mt: 4 }}>
-          <Typography variant="h4" sx={{ color: 'primary.main', fontWeight: 900, mb: 3 }}>Get Recommendations</Typography>
-          <Typography variant="body1" sx={{ color: 'text.secondary', fontSize: { xs: '1.1rem', sm: '1.2rem' }, mb: 3 }}>
-            Looking for the perfect gift or planning a visit to one of these college towns? We'd love to help you find the best spots and experiences!
+        <Paper elevation={0} sx={{ p: { xs: 3, sm: 5 }, borderRadius: 4, bgcolor: 'white', maxWidth: 800, mt: 4, mx: 2 }}>
+          <Typography variant="h4" sx={{ color: 'primary.main', fontWeight: 900, mb: 3, textAlign: 'center' }}>
+            Student Scoop
           </Typography>
-          <Typography variant="h6" sx={{ color: 'primary.main', fontWeight: 700, mb: 2 }}>How We Can Help:</Typography>
-          <Box sx={{ mb: 3 }}>
+          <Typography variant="body1" sx={{ color: 'text.secondary', fontSize: { xs: '1.1rem', sm: '1.2rem' }, mb: 3, textAlign: 'center' }}>
+            Share your favorite campus hotspots and help us build the ultimate college experience guide!
+          </Typography>
+          
+          <Typography variant="h6" sx={{ color: 'primary.main', fontWeight: 700, mb: 2 }}>
+            Why Share Your Recommendations?
+          </Typography>
+          <Box sx={{ mb: 4 }}>
             <Typography variant="body1" sx={{ color: 'text.secondary', fontSize: { xs: '1rem', sm: '1.1rem' }, mb: 1 }}>
-              • Personalized gift recommendations based on interests and budget
+              • Help fellow students discover the best spots on and around your campus
             </Typography>
             <Typography variant="body1" sx={{ color: 'text.secondary', fontSize: { xs: '1rem', sm: '1.1rem' }, mb: 1 }}>
-              • Custom college town itineraries for visits
+              • Get your favorite local businesses featured on Loop'd
             </Typography>
             <Typography variant="body1" sx={{ color: 'text.secondary', fontSize: { xs: '1rem', sm: '1.1rem' }, mb: 1 }}>
-              • Group booking assistance for special occasions
+              • Share insider tips about the best places for different groups and occasions
             </Typography>
             <Typography variant="body1" sx={{ color: 'text.secondary', fontSize: { xs: '1rem', sm: '1.1rem' }, mb: 1 }}>
-              • Local insider tips and hidden gems
+              • Build a community-driven guide that reflects real student experiences
             </Typography>
           </Box>
-          <Typography variant="body2" sx={{ color: 'primary.main', fontWeight: 600 }}>
-            Email us: <a href="mailto:recommendations@loopd.com" style={{ color: '#C33764', textDecoration: 'none' }}>recommendations@loopd.com</a>
+          
+          <Box sx={{ textAlign: 'center', mb: 3 }}>
+            <Typography variant="h6" sx={{ color: 'primary.main', fontWeight: 700, mb: 2 }}>
+              Ready to Share Your Campus Favorites?
+            </Typography>
+            <Typography variant="body1" sx={{ color: 'text.secondary', fontSize: { xs: '1rem', sm: '1.1rem' }, mb: 3 }}>
+              Fill out our quick form to tell us about the hotspots that make your college experience special.
+            </Typography>
+            
+            <Box sx={{ 
+              p: 3, 
+              bgcolor: 'rgba(195, 55, 100, 0.05)', 
+              borderRadius: 3, 
+              border: '2px solid rgba(195, 55, 100, 0.2)',
+              mb: 3
+            }}>
+              <Typography variant="body1" sx={{ color: 'primary.main', fontWeight: 600, mb: 2 }}>
+                🎯 Share Your Hotspots
+              </Typography>
+              <Typography variant="body2" sx={{ color: 'text.secondary', mb: 2 }}>
+                Click the link below to access our student recommendation form:
+              </Typography>
+              <Box sx={{ 
+                bgcolor: 'primary.main', 
+                color: 'white', 
+                p: 2, 
+                borderRadius: 2,
+                cursor: 'pointer',
+                transition: 'transform 0.2s ease',
+                textDecoration: 'none',
+                '&:hover': {
+                  transform: 'translateY(-2px)',
+                  boxShadow: '0 4px 20px rgba(195, 55, 100, 0.3)'
+                }
+              }} 
+              component="a" 
+              href="https://forms.gle/GvfaE8UyrSg5Eqv6A" 
+              target="_blank" 
+              rel="noopener noreferrer">
+                <Typography variant="button" sx={{ fontWeight: 700, fontSize: '1.1rem' }}>
+                  📝 Fill Out Student Scoop Form
+                </Typography>
+              </Box>
+            </Box>
+          </Box>
+          
+          <Typography variant="body2" sx={{ color: 'text.secondary', textAlign: 'center', fontStyle: 'italic' }}>
+            Your recommendations help create an authentic, student-driven guide to college life across the country.
           </Typography>
         </Paper>
       </Box>
@@ -648,7 +744,7 @@ function App() {
       {page === 'home' && <HomePage />}
       {page === 'colleges' && <CollegesPage />}
       {page === 'about' && <AboutPage />}
-      {page === 'recommendations' && <RecommendationsPage />}
+      {page === 'student-scoop' && <StudentScoopPage />}
     </ThemeProvider>
   );
 }
