@@ -392,7 +392,7 @@ const MinimalNav = ({ onNav, currentPage }: { onNav: (page: PageType) => void, c
     display: 'flex', 
     alignItems: 'center', 
     justifyContent: 'space-between',
-    px: { xs: 3, sm: 6 }, 
+    px: { xs: 2, sm: 4 }, 
     py: { xs: 2, sm: 3 }, 
     position: 'fixed',
     top: 0,
@@ -408,6 +408,7 @@ const MinimalNav = ({ onNav, currentPage }: { onNav: (page: PageType) => void, c
       display: 'flex', 
       alignItems: 'center',
       transition: 'transform 0.2s ease',
+      flex: '0 0 auto',
       '&:hover': {
         transform: 'scale(1.05)'
       }
@@ -416,8 +417,10 @@ const MinimalNav = ({ onNav, currentPage }: { onNav: (page: PageType) => void, c
     </Box>
     <Box sx={{ 
       display: 'flex', 
-      gap: { xs: 2, sm: 4 },
-      alignItems: 'center'
+      gap: { xs: 1.5, sm: 3 },
+      alignItems: 'center',
+      flex: '0 0 auto',
+      ml: 2
     }}>
       {(['colleges', 'about', 'student-scoop'] as const).map((page) => (
         <Typography 
@@ -425,7 +428,7 @@ const MinimalNav = ({ onNav, currentPage }: { onNav: (page: PageType) => void, c
           sx={{ 
             color: currentPage === page ? '#F8FFAE' : 'rgba(255,255,255,0.9)', 
             fontWeight: currentPage === page ? 700 : 600, 
-            fontSize: { xs: 14, sm: 16 }, 
+            fontSize: { xs: 12, sm: 14 }, 
             cursor: 'pointer',
             whiteSpace: 'nowrap',
             transition: 'all 0.3s ease',
@@ -517,7 +520,7 @@ function App() {
     <Box sx={{ 
       minHeight: '100vh',
       width: '100vw',
-      background: 'linear-gradient(180deg, #C33764 0%, #F8FFAE 100%)',
+      background: 'linear-gradient(180deg, #C33764 0%, #F8FFAE 100%)', // Pink to Yellow
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
@@ -577,7 +580,7 @@ function App() {
           }
         }
       }}>
-        <Typography sx={{ color: 'rgba(255,255,255,0.8)', fontSize: '0.9rem', mb: 1 }}>
+        <Typography sx={{ color: 'rgba(255,255,255,0.8)', fontSize: '0.9rem', mb: 1, textAlign: 'center' }}>
           Scroll to explore
         </Typography>
         <Box sx={{ textAlign: 'center', fontSize: '1.5rem' }}>⬇️</Box>
@@ -589,7 +592,7 @@ function App() {
     <Box sx={{ 
       minHeight: '100vh',
       width: '100vw',
-      background: 'linear-gradient(180deg, #C33764 0%, #F8FFAE 100%)',
+      background: 'linear-gradient(180deg, #F8FFAE 0%, #C33764 100%)', // Yellow to Pink
       display: 'flex',
       flexDirection: 'column',
       pt: 8,
@@ -773,7 +776,7 @@ function App() {
     <Box sx={{ 
       minHeight: '100vh',
       width: '100vw',
-      background: 'linear-gradient(180deg, #C33764 0%, #F8FFAE 100%)',
+      background: 'linear-gradient(180deg, #C33764 0%, #F8FFAE 100%)', // Pink to Yellow
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
@@ -836,7 +839,7 @@ function App() {
     <Box sx={{ 
       minHeight: '100vh',
       width: '100vw',
-      background: 'linear-gradient(180deg, #C33764 0%, #F8FFAE 100%)',
+      background: 'linear-gradient(180deg, #F8FFAE 0%, #C33764 100%)', // Yellow to Pink
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
