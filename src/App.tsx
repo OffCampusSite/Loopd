@@ -28,6 +28,7 @@ interface GiftSpot {
   priceRange: string;
   giftIdeas: string[];
   website: string;
+  popularityTag?: string;
 }
 
 interface College {
@@ -177,6 +178,180 @@ const colleges: College[] = [
         website: 'https://www.semcoop.com'
       }
     ]
+  },
+  {
+    name: 'Southern Methodist University',
+    hotspots: [
+      {
+        name: 'Goodbye Horses',
+        description: 'Trendy nightlife spot popular with the SMU crowd for drinks and socializing.',
+        category: 'Entertainment',
+        icon: <NightlifeIcon />,
+        priceRange: '$$',
+        giftIdeas: ['Gift Cards', 'Merchandise'],
+        website: 'https://goodbyehorsestx.com/',
+        popularityTag: 'Greek Life Favorite'
+      },
+      {
+        name: 'Theory',
+        description: 'Upscale nightclub and bar with a sophisticated atmosphere in uptown Dallas.',
+        category: 'Entertainment',
+        icon: <NightlifeIcon />,
+        priceRange: '$$$',
+        giftIdeas: ['Gift Cards', 'VIP Experiences'],
+        website: 'https://www.theoryuptown.com/',
+        popularityTag: 'Greek Life Favorite'
+      },
+      {
+        name: 'Barley House',
+        description: 'Sports bar and grill with a lively atmosphere and great game day experience.',
+        category: 'Food & Sports',
+        icon: <SportsBarIcon />,
+        priceRange: '$$',
+        giftIdeas: ['Gift Cards', 'Sports Merchandise'],
+        website: 'http://www.barleyhouse.com/'
+      },
+      {
+        name: 'Komodo',
+        description: 'Upscale Asian fusion restaurant and lounge with creative cocktails and sushi.',
+        category: 'Food & Dining',
+        icon: <RestaurantIcon />,
+        priceRange: '$$$',
+        giftIdeas: ['Gift Cards', 'Dining Experiences'],
+        website: 'https://komodorestaurant.com/'
+      },
+      {
+        name: 'Shugs',
+        description: 'Popular bagel shop known for fresh bagels and breakfast favorites among students.',
+        category: 'Food & Dining',
+        icon: <RestaurantIcon />,
+        priceRange: '$',
+        giftIdeas: ['Gift Cards', 'T-shirts'],
+        website: 'https://shugsbagels.com/',
+        popularityTag: 'Greek Life Favorite'
+      },
+      {
+        name: 'Old Monk',
+        description: 'Cozy neighborhood bar with craft cocktails and a relaxed atmosphere.',
+        category: 'Entertainment',
+        icon: <LocalBarIcon />,
+        priceRange: '$$',
+        giftIdeas: ['Gift Cards', 'Merchandise'],
+        website: 'https://www.facebook.com/OldMonkDallas'
+      }
+    ]
+  },
+  {
+    name: 'Michigan State University',
+    hotspots: [
+      {
+        name: 'Rick\'s American Café',
+        description: 'Legendary East Lansing nightclub and bar, a staple of MSU nightlife for decades.',
+        category: 'Entertainment',
+        icon: <NightlifeIcon />,
+        priceRange: '$$',
+        giftIdeas: ['Gift Cards', 'T-shirts'],
+        website: 'https://www.ricksamericancafe.com/east-lansing'
+      },
+      {
+        name: 'Harper\'s',
+        description: 'Popular brewpub and restaurant with craft beer and great food near campus.',
+        category: 'Food & Dining',
+        icon: <LocalBarIcon />,
+        priceRange: '$$',
+        giftIdeas: ['Gift Cards', 'Beer Merchandise'],
+        website: 'https://www.harpersbrewpub.com/'
+      },
+      {
+        name: 'Dublin Square Irish Pub',
+        description: 'Authentic Irish pub with live music, traditional food, and a great atmosphere.',
+        category: 'Food & Dining',
+        icon: <LocalBarIcon />,
+        priceRange: '$$',
+        giftIdeas: ['Gift Cards', 'Irish Merchandise'],
+        website: 'https://www.facebook.com/dublinsquare/'
+      },
+      {
+        name: 'Lou & Harry\'s',
+        description: 'Sports bar and grill known for great burgers and game day atmosphere.',
+        category: 'Food & Sports',
+        icon: <SportsBarIcon />,
+        priceRange: '$$',
+        giftIdeas: ['Gift Cards', 'Sports Merchandise'],
+        website: 'https://louhas.com/1429-west-saginaw/'
+      }
+    ]
+  },
+  {
+    name: 'University of California, Santa Barbara',
+    hotspots: [
+      {
+        name: 'Lao Wangs',
+        description: 'Popular street food spot serving authentic Asian cuisine, perfect for late-night cravings.',
+        category: 'Food & Dining',
+        icon: <RestaurantIcon />,
+        priceRange: '$',
+        giftIdeas: ['Gift Cards', 'T-shirts'],
+        website: 'https://www.laowangstreetfood.com/'
+      },
+      {
+        name: 'Sharkeez Mexican Restaurant & Bar',
+        description: 'Lively Mexican restaurant and bar with great margaritas and beachside vibes.',
+        category: 'Food & Dining',
+        icon: <RestaurantIcon />,
+        priceRange: '$$',
+        giftIdeas: ['Gift Cards', 'Merchandise'],
+        website: 'https://www.sharkeez.com/',
+        popularityTag: 'APhi Favorite'
+      }
+    ]
+  },
+  {
+    name: 'Dartmouth College',
+    hotspots: [
+      {
+        name: 'Molly\'s Restaurant & Bar',
+        description: 'Classic Hanover establishment with great food and a welcoming atmosphere for students.',
+        category: 'Food & Dining',
+        icon: <RestaurantIcon />,
+        priceRange: '$$',
+        giftIdeas: ['Gift Cards', 'Merchandise'],
+        website: 'https://www.mollysrestaurant.com/'
+      },
+      {
+        name: 'Han Fusion',
+        description: 'Modern Asian fusion restaurant offering creative dishes and fresh flavors.',
+        category: 'Food & Dining',
+        icon: <RestaurantIcon />,
+        priceRange: '$$',
+        giftIdeas: ['Gift Cards', 'Dining Experiences'],
+        website: 'https://hanfusionnh.com/'
+      },
+      {
+        name: 'Lou\'s Restaurant & Bakery',
+        description: 'Beloved local bakery and restaurant, a Hanover institution serving comfort food.',
+        category: 'Food & Dining',
+        icon: <RestaurantIcon />,
+        priceRange: '$',
+        giftIdeas: ['Gift Cards', 'Baked Goods'],
+        website: 'https://lousrestaurant.com/'
+      }
+    ]
+  },
+  {
+    name: 'Bowdoin College',
+    hotspots: [
+      {
+        name: 'Bolos',
+        description: 'Popular Brunswick restaurant and bar known for great food and lively sports atmosphere.',
+        category: 'Food & Sports',
+        icon: <SportsBarIcon />,
+        priceRange: '$$',
+        giftIdeas: ['Gift Cards', 'Sports Merchandise'],
+        website: 'https://www.bolosbrunswick.com/home',
+        popularityTag: 'Sports Team Favorite'
+      }
+    ]
   }
 ];
 
@@ -263,30 +438,20 @@ type PageType = 'home' | 'colleges' | 'about' | 'recommendations';
 
 // Custom SVG logo for Loop'd with infinity symbol replacing the "oo"
 const LoopdLogo = ({ size = 64 }: { size?: number }) => (
-  <svg
-    width={size * 3.2}
-    height={size}
-    viewBox="0 0 320 100"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    style={{ display: 'block' }}
+  <Typography
+    sx={{
+      fontFamily: 'Poppins, Arial, sans-serif',
+      fontWeight: 700,
+      fontSize: size * 0.6,
+      color: 'white',
+      textShadow: '0 2px 8px rgba(0,0,0,0.2)',
+      letterSpacing: '-0.02em',
+      lineHeight: 1,
+      display: 'block'
+    }}
   >
-    {/* L */}
-    <text x="0" y="75" fontFamily="Arial Black, Arial, sans-serif" fontWeight="bold" fontSize="70" fill="#111">L</text>
-    {/* Infinity Symbol replacing "oo" */}
-    <path
-      d="M70 50 C70 35, 85 35, 100 50 C115 65, 130 65, 145 50 C160 35, 175 35, 175 50 C175 65, 160 65, 145 50 C130 35, 115 35, 100 50 C85 65, 70 65, 70 50 Z"
-      fill="#111"
-      stroke="#111"
-      strokeWidth="2"
-    />
-    {/* p'd */}
-    <text x="190" y="75" fontFamily="Arial Black, Arial, sans-serif" fontWeight="bold" fontSize="70" fill="#111">p</text>
-    {/* Apostrophe */}
-    <text x="245" y="45" fontFamily="Arial Black, Arial, sans-serif" fontWeight="bold" fontSize="50" fill="#111">'</text>
-    {/* d */}
-    <text x="270" y="75" fontFamily="Arial Black, Arial, sans-serif" fontWeight="bold" fontSize="70" fill="#111">d</text>
-  </svg>
+    Loop'd
+  </Typography>
 );
 
 const MinimalNav = ({ onNav }: { onNav: (page: PageType) => void }) => (
@@ -407,6 +572,17 @@ function App() {
                           ))}
                         </Box>
                       </Box>
+                      {spot.popularityTag && (
+                        <Typography variant="body2" sx={{ 
+                          color: 'primary.main', 
+                          fontSize: { xs: '0.8rem', sm: '0.85rem' }, 
+                          fontWeight: 600,
+                          mt: 0.5,
+                          fontStyle: 'italic'
+                        }}>
+                          ★ Popular with {spot.popularityTag}
+                        </Typography>
+                      )}
                     </CardContent>
                   </Card>
                 </Grid>
