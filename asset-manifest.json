@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/Campus-Hotspots/static/js/main.bc88a705.js",
+    "main.js": "/Campus-Hotspots/static/js/main.af42bb4b.js",
     "index.html": "/Campus-Hotspots/index.html",
-    "main.bc88a705.js.map": "/Campus-Hotspots/static/js/main.bc88a705.js.map"
+    "main.af42bb4b.js.map": "/Campus-Hotspots/static/js/main.af42bb4b.js.map"
   },
   "entrypoints": [
-    "static/js/main.bc88a705.js"
+    "static/js/main.af42bb4b.js"
   ]
 }
