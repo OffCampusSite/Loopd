@@ -2,7 +2,7 @@
   "name": "campus-hotspots",
   "version": "1.0.0",
   "private": true,
-  "homepage": "https://OffCampusSite.github.io/Campus-Hotspots",
+  "homepage": "https://OffCampusSite.github.io/loopd",
   "dependencies": {
     "@emotion/react": "^11.11.0",
     "@emotion/styled": "^11.11.0",
