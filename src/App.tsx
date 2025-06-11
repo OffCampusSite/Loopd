@@ -392,7 +392,7 @@ const MinimalNav = ({ onNav, currentPage }: { onNav: (page: PageType) => void, c
     display: 'flex', 
     alignItems: 'center', 
     justifyContent: 'space-between',
-    px: { xs: 1.5, sm: 3 }, 
+    px: { xs: 1, sm: 2 }, 
     py: { xs: 2, sm: 3 }, 
     position: 'fixed',
     top: 0,
@@ -408,22 +408,17 @@ const MinimalNav = ({ onNav, currentPage }: { onNav: (page: PageType) => void, c
       display: 'flex', 
       alignItems: 'center',
       transition: 'transform 0.2s ease',
-      flex: '0 0 auto',
-      minWidth: 'fit-content',
       '&:hover': {
         transform: 'scale(1.05)'
       }
     }} onClick={() => onNav('home')}>
-      <LoopdLogo size={32} />
+      <LoopdLogo size={28} />
     </Box>
     <Box sx={{ 
       display: 'flex', 
-      gap: { xs: 1, sm: 2.5 },
+      gap: { xs: 0.8, sm: 2 },
       alignItems: 'center',
-      flex: '0 0 auto',
-      ml: { xs: 1, sm: 2 },
-      minWidth: 'fit-content',
-      overflow: 'visible'
+      mr: { xs: 0.5, sm: 1 }
     }}>
       {(['colleges', 'about', 'student-scoop'] as const).map((page) => (
         <Typography 
@@ -431,12 +426,13 @@ const MinimalNav = ({ onNav, currentPage }: { onNav: (page: PageType) => void, c
           sx={{ 
             color: currentPage === page ? '#F8FFAE' : 'rgba(255,255,255,0.9)', 
             fontWeight: currentPage === page ? 700 : 600, 
-            fontSize: { xs: 11, sm: 14 }, 
+            fontSize: { xs: 10, sm: 13 }, 
             cursor: 'pointer',
             whiteSpace: 'nowrap',
             transition: 'all 0.3s ease',
             position: 'relative',
-            px: { xs: 0.5, sm: 1 },
+            px: { xs: 0.3, sm: 0.8 },
+            py: { xs: 0.5, sm: 1 },
             '&:hover': {
               color: '#F8FFAE',
               transform: 'translateY(-1px)'
@@ -444,7 +440,7 @@ const MinimalNav = ({ onNav, currentPage }: { onNav: (page: PageType) => void, c
             '&::after': currentPage === page ? {
               content: '""',
               position: 'absolute',
-              bottom: -4,
+              bottom: -2,
               left: 0,
               right: 0,
               height: 2,
@@ -479,12 +475,12 @@ function App() {
       const scrollY = window.scrollY;
       const windowHeight = window.innerHeight;
       
-      // Calculate which section we're in based on scroll position
-      if (scrollY < windowHeight * 0.8) {
+      // Calculate which section we're in based on scroll position with some buffer
+      if (scrollY < windowHeight * 0.7) {
         setPage('home');
-      } else if (scrollY < windowHeight * 1.8) {
+      } else if (scrollY < windowHeight * 1.7) {
         setPage('colleges');
-      } else if (scrollY < windowHeight * 2.8) {
+      } else if (scrollY < windowHeight * 2.7) {
         setPage('about');
       } else {
         setPage('student-scoop');
@@ -496,31 +492,56 @@ function App() {
   }, []);
 
   const scrollToSection = (targetPage: PageType) => {
-    const windowHeight = window.innerHeight;
-    let targetY = 0;
+    let targetElement: HTMLElement | null = null;
     
     switch (targetPage) {
       case 'home':
-        targetY = 0;
+        targetElement = document.getElementById('home-section');
         break;
       case 'colleges':
-        targetY = windowHeight;
+        targetElement = document.getElementById('colleges-section');
         break;
       case 'about':
-        targetY = windowHeight * 2;
+        targetElement = document.getElementById('about-section');
         break;
       case 'student-scoop':
-        targetY = windowHeight * 3;
+        targetElement = document.getElementById('student-scoop-section');
         break;
     }
     
-    // Force update the page state immediately for visual feedback
-    setPage(targetPage);
+    if (targetElement) {
+      targetElement.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    } else {
+      // Fallback to viewport-based scrolling
+      const windowHeight = window.innerHeight;
+      let targetY = 0;
+      
+      switch (targetPage) {
+        case 'home':
+          targetY = 0;
+          break;
+        case 'colleges':
+          targetY = windowHeight;
+          break;
+        case 'about':
+          targetY = windowHeight * 2;
+          break;
+        case 'student-scoop':
+          targetY = windowHeight * 3;
+          break;
+      }
+      
+      window.scrollTo({
+        top: targetY,
+        behavior: 'smooth'
+      });
+    }
     
-    window.scrollTo({
-      top: targetY,
-      behavior: 'smooth'
-    });
+    // Update page state immediately for visual feedback
+    setPage(targetPage);
   };
 
   const HomePage = () => (
