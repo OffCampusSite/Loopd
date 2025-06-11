@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.js": "/Campus-Hotspots/static/js/main.af42bb4b.js",
-    "index.html": "/Campus-Hotspots/index.html",
-    "main.af42bb4b.js.map": "/Campus-Hotspots/static/js/main.af42bb4b.js.map"
+    "main.js": "/Loopd/static/js/main.af42bb4b.js",
+    "index.html": "/Loopd/index.html",
+    "main.af42bb4b.js.map": "/Loopd/static/js/main.af42bb4b.js.map"
   },
   "entrypoints": [
     "static/js/main.af42bb4b.js"
