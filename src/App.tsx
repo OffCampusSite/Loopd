@@ -392,7 +392,7 @@ const MinimalNav = ({ onNav, currentPage }: { onNav: (page: PageType) => void, c
     display: 'flex', 
     alignItems: 'center', 
     justifyContent: 'space-between',
-    px: { xs: 2, sm: 4 }, 
+    px: { xs: 1.5, sm: 3 }, 
     py: { xs: 2, sm: 3 }, 
     position: 'fixed',
     top: 0,
@@ -409,6 +409,7 @@ const MinimalNav = ({ onNav, currentPage }: { onNav: (page: PageType) => void, c
       alignItems: 'center',
       transition: 'transform 0.2s ease',
       flex: '0 0 auto',
+      minWidth: 'fit-content',
       '&:hover': {
         transform: 'scale(1.05)'
       }
@@ -417,10 +418,12 @@ const MinimalNav = ({ onNav, currentPage }: { onNav: (page: PageType) => void, c
     </Box>
     <Box sx={{ 
       display: 'flex', 
-      gap: { xs: 1.5, sm: 3 },
+      gap: { xs: 1, sm: 2.5 },
       alignItems: 'center',
       flex: '0 0 auto',
-      ml: 2
+      ml: { xs: 1, sm: 2 },
+      minWidth: 'fit-content',
+      overflow: 'visible'
     }}>
       {(['colleges', 'about', 'student-scoop'] as const).map((page) => (
         <Typography 
@@ -428,11 +431,12 @@ const MinimalNav = ({ onNav, currentPage }: { onNav: (page: PageType) => void, c
           sx={{ 
             color: currentPage === page ? '#F8FFAE' : 'rgba(255,255,255,0.9)', 
             fontWeight: currentPage === page ? 700 : 600, 
-            fontSize: { xs: 12, sm: 14 }, 
+            fontSize: { xs: 11, sm: 14 }, 
             cursor: 'pointer',
             whiteSpace: 'nowrap',
             transition: 'all 0.3s ease',
             position: 'relative',
+            px: { xs: 0.5, sm: 1 },
             '&:hover': {
               color: '#F8FFAE',
               transform: 'translateY(-1px)'
@@ -509,6 +513,9 @@ function App() {
         targetY = windowHeight * 3;
         break;
     }
+    
+    // Force update the page state immediately for visual feedback
+    setPage(targetPage);
     
     window.scrollTo({
       top: targetY,
