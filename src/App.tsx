@@ -548,35 +548,39 @@ function App() {
     <GradientBackground>
       <MinimalNav onNav={setPage} />
       <Container maxWidth="lg" sx={{ mt: { xs: 2, sm: 4 }, mb: { xs: 2, sm: 4 }, px: { xs: 0.5, sm: 2 } }}>
-        <Typography variant="h4" component="h1" gutterBottom sx={{ color: 'white', fontSize: { xs: '1.4rem', sm: '2rem' }, mb: 2, fontWeight: 900, textShadow: '0 2px 12px rgba(44,62,80,0.10)' }}>
+        <Typography variant="h4" component="h1" gutterBottom sx={{ color: 'white', fontSize: { xs: '1.4rem', sm: '2rem' }, mb: 3, fontWeight: 900, textShadow: '0 2px 12px rgba(44,62,80,0.10)' }}>
           Explore College Loops
         </Typography>
-        <Typography variant="subtitle1" sx={{ 
-          color: 'white', 
-          mb: 3, 
-          fontSize: { xs: '1rem', sm: '1.2rem' }, 
-          textShadow: '0 2px 12px rgba(44,62,80,0.10)',
-          fontWeight: 500
-        }}>
-          Select a college to discover the best spots and gift ideas in their area
-        </Typography>
-        <Autocomplete
-          options={colleges}
-          getOptionLabel={(option) => option.name}
-          value={selectedCollege}
-          onChange={(event, newValue) => {
-            setSelectedCollege(newValue);
-          }}
-          renderInput={(params) => (
-            <TextField
-              {...params}
-              label="Choose Your School"
-              variant="outlined"
-              fullWidth
-              sx={{ mb: { xs: 2, sm: 4 }, bgcolor: 'rgba(255,255,255,0.95)', borderRadius: 2, input: { color: '#222' } }}
-            />
-          )}
-        />
+        
+        <Box sx={{ mb: 4 }}>
+          <Typography variant="h6" sx={{ 
+            color: 'white', 
+            mb: 2, 
+            fontSize: { xs: '1.1rem', sm: '1.3rem' }, 
+            textShadow: '0 2px 12px rgba(44,62,80,0.10)',
+            fontWeight: 600,
+            textAlign: 'center'
+          }}>
+            Choose Your School
+          </Typography>
+          <Autocomplete
+            options={colleges}
+            getOptionLabel={(option) => option.name}
+            value={selectedCollege}
+            onChange={(event, newValue) => {
+              setSelectedCollege(newValue);
+            }}
+            renderInput={(params) => (
+              <TextField
+                {...params}
+                label="Search for your college..."
+                variant="outlined"
+                fullWidth
+                sx={{ bgcolor: 'rgba(255,255,255,0.95)', borderRadius: 2, input: { color: '#222' } }}
+              />
+            )}
+          />
+        </Box>
         {selectedCollege && (
           <Box sx={{ mt: { xs: 2, sm: 4 } }}>
             <Typography variant="h5" gutterBottom sx={{ color: 'white', fontSize: { xs: '1.2rem', sm: '1.7rem' }, mb: 3, fontWeight: 700, letterSpacing: '-0.01em', textShadow: '0 2px 12px rgba(44,62,80,0.10)' }}>
